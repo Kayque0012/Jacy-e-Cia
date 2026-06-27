@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Jacy & Cia Centro de Beleza em Betim | Salão de Beleza, Terapia Capilar, Manicure e Estética</title>
+
+  <meta name="description" content="Jacy & Cia Centro de Beleza em Betim-MG. Salão especializado em terapia capilar, crescimento saudável dos cabelos, mechas, progressiva, hidratação, escova, manicure, pedicure, sobrancelhas, limpeza de pele e estética." />
+
+  <meta name="keywords" content="salão de beleza em Betim, centro de beleza em Betim, terapia capilar em Betim, crescimento capilar Betim, manicure em Betim, pedicure em Betim, limpeza de pele em Betim, estética em Betim, mechas em Betim, progressiva em Betim, hidratação capilar em Betim, escova em Betim, penteados em Betim, sobrancelhas em Betim, salão região metropolitana BH, salão de beleza Contagem" />
+
+  <meta name="author" content="Jacy & Cia Centro de Beleza" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#050505" />
+
+  <link rel="canonical" href="https://SEU-USUARIO.github.io/jacyecia/" />
+
+  <meta property="og:title" content="Jacy & Cia Centro de Beleza em Betim" />
+  <meta property="og:description" content="Cabelos, unhas, sobrancelhas, estética e terapia capilar em Betim-MG. Agende seu horário pelo WhatsApp." />
+  <meta property="og:image" content="https://SEU-USUARIO.github.io/jacyecia/assets/logo-jacy-e-cia.png" />
+  <meta property="og:url" content="https://SEU-USUARIO.github.io/jacyecia/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <link rel="icon" href="assets/logo-jacy-e-cia.png" />
+
+  <style>
+    :root {
+      --black: #050505;
+      --black-soft: #101010;
+      --gold: #c99a36;
+      --gold-light: #f4d27a;
+      --white: #ffffff;
+      --gray: #d7d7d7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.92);
+      border-bottom: 1px solid rgba(201, 154, 54, 0.35);
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .navbar {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      width: 135px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .menu a:hover {
+      color: var(--gold-light);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #111;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 120px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.72), rgba(0,0,0,0.35)),
+        url("assets/hero-salao.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 680px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 76px);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: var(--gray);
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: linear-gradient(180deg, #151515, #090909);
+      border: 1px solid rgba(201, 154, 54, 0.45);
+      padding: 26px;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold-light);
+    }
+
+    .service-card h3 {
+      color: var(--gold-light);
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    .about {
+      background: var(--black-soft);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      color: var(--gold-light);
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-grid img {
+      border-radius: 14px;
+      height: 280px;
+      width: 100%;
+      object-fit: cover;
+      border: 1px solid rgba(201, 154, 54, 0.35);
+    }
+
+    .cta {
+      background:
+        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.85)),
+        url("assets/salao-interior.jpg") center/cover no-repeat;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 5vw, 54px);
+      color: var(--gold-light);
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      color: var(--gray);
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .contact {
+      background: var(--black-soft);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .info-box {
+      background: #090909;
+      border: 1px solid rgba(201, 154, 54, 0.45);
+      padding: 30px;
+      border-radius: 16px;
+    }
+
+    .info-box h3 {
+      color: var(--gold-light);
+      margin-bottom: 15px;
+    }
+
+    .info-box p {
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 330px;
+      border: 0;
+      border-radius: 16px;
+    }
+
+    footer {
+      padding: 35px 0;
+      text-align: center;
+      border-top: 1px solid rgba(201, 154, 54, 0.35);
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1000;
+      background: #25d366;
+      color: #fff;
+      padding: 15px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0,0,0,0.35);
+    }
+
+    @media (max-width: 900px) {
+      .menu {
+        display: none;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: left;
+        background:
+          linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.72)),
+          url("assets/hero-salao.jpg") center/cover no-repeat;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        height: 76px;
+      }
+
+      .logo img {
+        width: 115px;
+      }
+
+      .hero {
+        padding-top: 105px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Jacy & Cia Centro de Beleza",
+    "image": "https://SEU-USUARIO.github.io/jacyecia/assets/logo-jacy-e-cia.png",
+    "description": "Salão de beleza em Betim especializado em terapia capilar, manicure, pedicure, limpeza de pele, estética, mechas, hidratação, escova, penteados, sobrancelhas e progressiva.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Betim",
+      "addressRegion": "MG",
+      "addressCountry": "BR"
+    },
+    "areaServed": [
+      "Betim",
+      "Contagem",
+      "Belo Horizonte",
+      "Região Metropolitana de Belo Horizonte"
+    ],
+    "telephone": "+55 31 99999-9999",
+    "url": "https://SEU-USUARIO.github.io/jacyecia/",
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.instagram.com/SEU-INSTAGRAM"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a href="#" class="logo">
+        <img src="assets/logo-jacy-e-cia.png" alt="Logo Jacy & Cia Centro de Beleza em Betim">
+      </a>
+
+      <nav class="menu">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#contato">Contato</a>
+        <a class="btn btn-gold" href="https://wa.me/5531999999999" target="_blank">Agendar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Realce sua beleza, <span>revele sua melhor versão.</span></h1>
+        <p>
+          No Jacy & Cia Centro de Beleza, em Betim-MG, cuidamos da sua beleza com carinho,
+          profissionalismo e serviços completos para cabelos, unhas, sobrancelhas e estética.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-gold" href="https://wa.me/5531999999999" target="_blank">Agendar pelo WhatsApp</a>
+          <a class="btn btn-outline" href="#servicos">Conhecer Serviços</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Serviços de Beleza em Betim</h2>
+          <p>
+            Conheça nossos principais procedimentos. Em breve, cada serviço terá uma página própria,
+            otimizada para o Google e pensada para quem procura beleza, autoestima e cuidado em Betim e região.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <h3>Terapia Capilar</h3>
+            <p>Tratamentos para fortalecimento dos fios, saúde do couro cabeludo e crescimento capilar natural e saudável.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Manicure e Pedicure</h3>
+            <p>Cuidados completos para mãos e pés, esmaltação, acabamento delicado e atendimento com higiene e carinho.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Limpeza de Pele</h3>
+            <p>Procedimento estético para renovar, higienizar e melhorar a aparência da pele com cuidado profissional.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Mechas e Coloração</h3>
+            <p>Transformação dos cabelos com mechas, luzes, coloração e técnicas para valorizar sua beleza.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Hidratação Capilar</h3>
+            <p>Tratamentos para recuperar brilho, maciez, força e movimento dos cabelos danificados ou ressecados.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Escova e Penteados</h3>
+            <p>Escovas, finalizações e penteados para o dia a dia, eventos, festas, formaturas e ocasiões especiais.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Sobrancelhas</h3>
+            <p>Design e cuidados para sobrancelhas, valorizando o olhar e a harmonia do rosto.</p>
+          </article>
+
+          <article class="service-card">
+            <h3>Progressiva</h3>
+            <p>Procedimentos de alinhamento capilar para reduzir volume, controlar frizz e deixar os fios mais disciplinados.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2>Sobre o Jacy & Cia</h2>
+          <p>
+            O Jacy & Cia Centro de Beleza é um salão localizado em Betim-MG, com anos de experiência
+            cuidando da beleza, autoestima e bem-estar de suas clientes.
+          </p>
+          <p>
+            Nosso objetivo é oferecer um atendimento acolhedor, profissional e completo, reunindo serviços
+            de cabelo, unhas, sobrancelhas e estética em um só lugar.
+          </p>
+          <p>
+            Atendemos clientes de Betim, Contagem, Belo Horizonte e toda a região metropolitana.
+          </p>
+          <a class="btn btn-gold" href="#contato">Fale Conosco</a>
+        </div>
+
+        <div>
+          <img src="assets/salao-interior.jpg" alt="Interior do salão Jacy & Cia Centro de Beleza em Betim">
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="container">
+        <div class="section-title">
+          <h2>Galeria</h2>
+          <p>Veja alguns registros de cabelos, unhas, tratamentos e resultados realizados no salão.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <img src="assets/galeria-cabelo.jpg" alt="Resultado de cabelo com mechas em salão de beleza em Betim">
+          <img src="assets/galeria-unhas.jpg" alt="Manicure e pedicure em Betim no Jacy & Cia">
+          <img src="assets/galeria-estetica.jpg" alt="Serviços estéticos e limpeza de pele em Betim">
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Agende seu horário</h2>
+        <p>Cuide da sua beleza com quem entende de carinho, estética e autoestima.</p>
+        <a class="btn btn-gold" href="https://wa.me/5531999999999" target="_blank">Chamar no WhatsApp</a>
+      </div>
+    </section>
+
+    <section id="contato" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contato e Localização</h2>
+          <p>Estamos em Betim-MG, atendendo também clientes de Contagem, Belo Horizonte e região metropolitana.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="info-box">
+            <h3>Jacy & Cia Centro de Beleza</h3>
+            <p><strong>Endereço:</strong> Betim - MG</p>
+            <p><strong>WhatsApp:</strong> (31) 99999-9999</p>
+            <p><strong>Horário:</strong> Segunda a sábado, das 8h às 19h</p>
+            <p><strong>Serviços:</strong> Cabelos, terapia capilar, unhas, sobrancelhas, limpeza de pele e estética.</p>
+            <br>
+            <a class="btn btn-gold" href="https://wa.me/5531999999999" target="_blank">Agendar Atendimento</a>
+          </div>
+
+          <div>
+            <iframe
+              src="https://www.google.com/maps?q=Betim%20MG&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização do Jacy & Cia Centro de Beleza em Betim">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/5531999999999" target="_blank">
+    WhatsApp
+  </a>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Jacy & Cia Centro de Beleza - Salão de Beleza em Betim-MG.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
