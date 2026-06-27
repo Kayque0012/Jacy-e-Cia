@@ -28,7 +28,6 @@
   <style>
     :root {
       --black: #030303;
-      --black2: #080808;
       --gold: #d5a33b;
       --gold2: #ffe08a;
       --white: #ffffff;
@@ -49,6 +48,7 @@
       font-family: "Poppins", Arial, sans-serif;
       background: var(--black);
       color: var(--white);
+      overflow-x: hidden;
     }
 
     a {
@@ -64,6 +64,17 @@
     .container {
       width: min(1220px, 92%);
       margin: auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     header {
@@ -85,6 +96,7 @@
 
     .logo img {
       width: 145px;
+      filter: drop-shadow(0 0 15px rgba(213,163,59,.2));
     }
 
     nav {
@@ -97,11 +109,29 @@
     }
 
     nav a {
+      position: relative;
       transition: 0.25s;
     }
 
-    nav a:hover {
+    nav a:not(.btn)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -9px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      transition: 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
       color: var(--gold2);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
     }
 
     .btn {
@@ -153,9 +183,10 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(0,0,0,.98) 0%, rgba(0,0,0,.90) 36%, rgba(0,0,0,.38) 67%, rgba(0,0,0,.12) 100%),
-        url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1900&q=90") center right / cover no-repeat;
-      filter: saturate(1.15) contrast(1.08);
+        linear-gradient(90deg, rgba(0,0,0,.98) 0%, rgba(0,0,0,.88) 35%, rgba(0,0,0,.36) 68%, rgba(0,0,0,.10) 100%),
+        url("https://source.unsplash.com/Md_DhaFsnCQ/1900x1200") center right / cover no-repeat;
+      filter: saturate(1.08) contrast(1.05);
+      transform: scale(1.03);
     }
 
     .hero::after {
@@ -163,8 +194,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 73% 39%, rgba(255,224,138,.22), transparent 27%),
-        radial-gradient(circle at 18% 78%, rgba(213,163,59,.16), transparent 25%),
+        radial-gradient(circle at 73% 39%, rgba(255,224,138,.19), transparent 27%),
+        radial-gradient(circle at 18% 78%, rgba(213,163,59,.15), transparent 25%),
         linear-gradient(180deg, transparent 78%, #050505 100%);
       pointer-events: none;
     }
@@ -524,7 +555,7 @@
       .hero::before {
         background:
           linear-gradient(180deg, rgba(0,0,0,.48), rgba(0,0,0,.98)),
-          url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=90") center top / cover no-repeat;
+          url("https://source.unsplash.com/Md_DhaFsnCQ/1200x1500") center top / cover no-repeat;
       }
 
       .hero-logo {
@@ -590,7 +621,7 @@
     </a>
 
     <nav>
-      <a href="#inicio">Início</a>
+      <a href="#inicio" class="active">Início</a>
       <a href="#sobre">Sobre nós</a>
       <a href="#servicos">Serviços</a>
       <a href="#galeria">Galeria</a>
@@ -599,7 +630,7 @@
 
       <a class="btn btn-outline" href="https://wa.me/5531992676485?text=Vim%20do%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio" target="_blank">
         <svg class="wpp-icon" viewBox="0 0 32 32">
-          <path d="M16.01 3C8.83 3 3 8.82 3 15.99c0 2.29.6 4.52 1.74 6.49L3 29l6.69-1.7A12.94 12.94 0 0 0 16.01 29C23.18 29 29 23.18 29 15.99 29 8.82 23.18 3 16.01 3Zm5.85 15.68c-.32-.16-1.9-.94-2.19-1.05-.29-.11-.5-.16-.71.16-.21.32-.82 1.05-1.01 1.27-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.27 3.46 5.5 4.85.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37Z"/>
+          <path d="M16.01 3C8.83 3 3 8.82 3 15.99c0 2.29.6 4.52 1.74 6.49L3 29l6.69-1.7A12.94 12.94 0 0 0 16.01 29C23.18 29 29 23.18 29 15.99 29 8.82 23.18 3 16.01 3Zm0 23.67c-2.02 0-4-.54-5.72-1.57l-.41-.24-3.97 1.01 1.06-3.87-.27-.42A10.6 10.6 0 0 1 5.33 16c0-5.89 4.79-10.67 10.68-10.67S26.67 10.11 26.67 16 21.89 26.67 16.01 26.67Zm5.85-7.99c-.32-.16-1.9-.94-2.19-1.05-.29-.11-.5-.16-.71.16-.21.32-.82 1.05-1.01 1.27-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.27 3.46 5.5 4.85.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37Z"/>
         </svg>
         Agendar pelo WhatsApp
       </a>
@@ -609,9 +640,9 @@
 
 <main id="inicio">
 
-<section class="hero">
+<section class="hero section-watch">
   <div class="container">
-    <div class="hero-content">
+    <div class="hero-content reveal active">
 
       <img class="hero-logo" src="logo-jacy-e-cia.png" alt="Jacy & Cia Centro de Beleza em Betim">
 
@@ -632,7 +663,7 @@
       <div class="hero-buttons">
         <a class="btn btn-gold" href="https://wa.me/5531992676485?text=Vim%20do%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio" target="_blank">
           <svg class="wpp-icon" viewBox="0 0 32 32">
-            <path d="M16.01 3C8.83 3 3 8.82 3 15.99c0 2.29.6 4.52 1.74 6.49L3 29l6.69-1.7A12.94 12.94 0 0 0 16.01 29C23.18 29 29 23.18 29 15.99 29 8.82 23.18 3 16.01 3Zm5.85 15.68c-.32-.16-1.9-.94-2.19-1.05-.29-.11-.5-.16-.71.16-.21.32-.82 1.05-1.01 1.27-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.27 3.46 5.5 4.85.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37Z"/>
+            <path d="M16.01 3C8.83 3 3 8.82 3 15.99c0 2.29.6 4.52 1.74 6.49L3 29l6.69-1.7A12.94 12.94 0 0 0 16.01 29C23.18 29 29 23.18 29 15.99 29 8.82 23.18 3 16.01 3Zm0 23.67c-2.02 0-4-.54-5.72-1.57l-.41-.24-3.97 1.01 1.06-3.87-.27-.42A10.6 10.6 0 0 1 5.33 16c0-5.89 4.79-10.67 10.68-10.67S26.67 10.11 26.67 16 21.89 26.67 16.01 26.67Zm5.85-7.99c-.32-.16-1.9-.94-2.19-1.05-.29-.11-.5-.16-.71.16-.21.32-.82 1.05-1.01 1.27-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.27 3.46 5.5 4.85.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37Z"/>
           </svg>
           Agendar pelo WhatsApp
         </a>
@@ -650,8 +681,8 @@
   </div>
 </section>
 
-<section id="servicos" class="services">
-  <div class="container">
+<section id="servicos" class="services section-watch">
+  <div class="container reveal">
     <div class="section-title">
       <span>Nossos serviços</span>
       <h2>Beleza completa em Betim</h2>
@@ -676,8 +707,8 @@
   </div>
 </section>
 
-<section id="sobre" class="about">
-  <div class="container">
+<section id="sobre" class="about section-watch">
+  <div class="container reveal">
     <div class="about-box">
       <h2>Sobre nós <span>Jacy & Cia</span></h2>
       <p>O Jacy & Cia Centro de Beleza está há anos cuidando da beleza e autoestima de clientes em Betim-MG.</p>
@@ -688,8 +719,8 @@
   </div>
 </section>
 
-<section id="galeria" class="gallery">
-  <div class="container">
+<section id="galeria" class="gallery section-watch">
+  <div class="container reveal">
     <div class="section-title">
       <span>Galeria</span>
       <h2>Resultados e cuidados</h2>
@@ -706,8 +737,8 @@
   </div>
 </section>
 
-<section id="depoimentos" class="bottom">
-  <div class="container bottom-grid">
+<section id="depoimentos" class="bottom section-watch">
+  <div class="container bottom-grid reveal">
     <div class="box">
       <h3>Depoimentos</h3>
       <div class="stars">★★★★★</div>
@@ -715,7 +746,7 @@
       <p><strong>— Cliente Jacy & Cia</strong></p>
     </div>
 
-    <div id="contato" class="box">
+    <div id="contato" class="box section-watch">
       <h3>Onde estamos</h3>
       <p>Atendimento em Betim-MG para clientes de Betim, Contagem, Belo Horizonte e região metropolitana.</p>
       <div><strong>📍 Local:</strong> Betim - MG</div>
@@ -731,13 +762,48 @@
 
 <a class="float-whats" href="https://wa.me/5531992676485?text=Vim%20do%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio" target="_blank" aria-label="Agendar pelo WhatsApp">
   <svg viewBox="0 0 32 32">
-    <path d="M16.01 3C8.83 3 3 8.82 3 15.99c0 2.29.6 4.52 1.74 6.49L3 29l6.69-1.7A12.94 12.94 0 0 0 16.01 29C23.18 29 29 23.18 29 15.99 29 8.82 23.18 3 16.01 3Zm5.85 15.68c-.32-.16-1.9-.94-2.19-1.05-.29-.11-.5-.16-.71.16-.21.32-.82 1.05-1.01 1.27-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.27 3.46 5.5 4.85.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37Z"/>
+    <path d="M16.01 3C8.83 3 3 8.82 3 15.99c0 2.29.6 4.52 1.74 6.49L3 29l6.69-1.7A12.94 12.94 0 0 0 16.01 29C23.18 29 29 23.18 29 15.99 29 8.82 23.18 3 16.01 3Zm0 23.67c-2.02 0-4-.54-5.72-1.57l-.41-.24-3.97 1.01 1.06-3.87-.27-.42A10.6 10.6 0 0 1 5.33 16c0-5.89 4.79-10.67 10.68-10.67S26.67 10.11 26.67 16 21.89 26.67 16.01 26.67Zm5.85-7.99c-.32-.16-1.9-.94-2.19-1.05-.29-.11-.5-.16-.71.16-.21.32-.82 1.05-1.01 1.27-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.27 3.46 5.5 4.85.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37Z"/>
   </svg>
 </a>
 
 <footer>
   © 2026 Jacy & Cia Centro de Beleza — Salão de Beleza em Betim-MG.
 </footer>
+
+<script>
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  const sections = document.querySelectorAll(".section-watch");
+  const navLinks = document.querySelectorAll("nav a[href^='#']");
+
+  window.addEventListener("scroll", () => {
+    let current = "inicio";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 130;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id") || "inicio";
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
